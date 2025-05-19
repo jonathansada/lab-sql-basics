@@ -20,16 +20,16 @@ SELECT account_id, amount FROM loan ORDER BY loan_id ASC LIMIT 5;
 SELECT account_id FROM loan WHERE duration = 60 ORDER BY amount ASC LIMIT 5; -- Asumming the LIMIT 5 based on the expected answer but it was not explicitly required
 
 -- Q8 - What are the unique values of k_symbol in the order table?
-SELECT DISTINCT(k_symbol) FROM "order" WHERE k_symbol <> " "; -- I excluded the value k_symbol=" " since is not shown in the expected results but it was not  explicitly required
+SELECT DISTINCT(k_symbol) FROM `order` WHERE k_symbol <> " "; -- I excluded the value k_symbol=" " since is not shown in the expected results but it was not  explicitly required
 
 -- Q9 - In the order table, what are the order_ids of the client with the account_id 34?
-SELECT order_id FROM "order" WHERE account_id=34;
+SELECT order_id FROM `order` WHERE account_id=34;
 
 -- Q10 - In the order table, which account_ids were responsible for orders between order_id 29540 and order_id 29560 (inclusive)?
-SELECT account_id FROM "order" WHERE order_id>=29540 AND order_id <=29560 GROUP BY account_id;
+SELECT account_id FROM `order` WHERE order_id>=29540 AND order_id <=29560 GROUP BY account_id;
 
 -- Q11 - In the order table, what are the individual amounts that were sent to (account_to) id 30067122?
-SELECT amount FROM "order" WHERE account_to = 30067122;
+SELECT amount FROM `order` WHERE account_to = 30067122;
 
 -- Q12 - In the trans table, show the trans_id, date, type and amount of the 10 first transactions from account_id 793 in chronological order, from newest to oldest.
 SELECT trans_id, date, type, amount FROM trans WHERE account_id = 793 ORDER BY date DESC LIMIT 10;
